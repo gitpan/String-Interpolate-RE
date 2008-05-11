@@ -1,8 +1,45 @@
-2007-09-19  Diab Jerius  <djerius@cfa.harvard.edu>
+2008-05-11  Diab Jerius  <djerius@cfa.harvard.edu>
 
-	Tag: 0.02
+	Tag 0.03
 
-2007-09-19 10:20 -0400  djerius  <djerius@cfa.harvard.edu>  (c838e6a55dbd [tip])
+2008-05-11 15:12 -0400  djerius  <djerius@cfa.harvard.edu>  (7ddef36329f0 [tip])
+
+	* t/format.t: new file.
+	* t/format.t:
+	forgot to add the test for the formatting of interpolated variables
+	to the repository
+
+2008-05-11 15:11 -0400  djerius  <djerius@cfa.harvard.edu>  (8f4ee974d7b6)
+
+	* ChangeLog, Changes, lib/String/Interpolate/RE.pm:
+	update version and logs for release
+
+2008-05-11 15:09 -0400  djerius  <djerius@cfa.harvard.edu>  (52b77e40ba22)
+
+	* lib/String/Interpolate/RE.pm, t/interp.t:
+	allow specification of a sprintf style format in the template string
+
+2008-05-11 14:55 -0400  djerius  <djerius@cfa.harvard.edu>  (11f6a71f0c3a)
+
+	* lib/String/Interpolate/RE.pm:
+	quiet inappropriate Perl Critic complaint
+
+2007-09-19 10:24 -0400  djerius  <djerius@cfa.harvard.edu>  (283e53a7e682)
+
+	* .hgtags:
+	Added tag 0.02 for changeset 1ab9730b8b0a
+
+2007-09-19 10:22 -0400  djerius  <djerius@cfa.harvard.edu>  (1ab9730b8b0a [0.02])
+
+	* MANIFEST.SKIP:
+	remove more cruft
+
+2007-09-19 10:22 -0400  djerius  <djerius@cfa.harvard.edu>  (429b49144911)
+
+	* ChangeLog, Changes, lib/String/Interpolate/RE.pm:
+	update for release
+
+2007-09-19 10:20 -0400  djerius  <djerius@cfa.harvard.edu>  (c838e6a55dbd)
 
 	* t/interp.t:
 	test multiple substitutions
@@ -20,6 +57,7 @@
 
 2007-09-19 09:29 -0400  djerius  <djerius@cfa.harvard.edu>  (84a28f662357)
 
+	* .hgtags: new file.
 	* .hgtags:
 	Added tag 0.01 for changeset 6d73de9a9a15
 
@@ -35,11 +73,13 @@
 
 2007-09-19 09:05 -0400  djerius  <djerius@cfa.harvard.edu>  (92cf7500ccf6)
 
+	* ChangeLog: new file.
 	* ChangeLog:
 	update for release
 
 2007-09-19 09:04 -0400  djerius  <djerius@cfa.harvard.edu>  (bacfabd49ad3)
 
+	* MANIFEST.SKIP: new file.
 	* MANIFEST.SKIP:
 	added to keep out the cruft
 
@@ -56,6 +96,9 @@
 
 2007-09-18 17:30 -0400  djerius  <djerius@cfa.harvard.edu>  (fe0d187ff26c)
 
+	* Changes, LICENSE, Makefile.PL, README, lib/String/Interpolate/RE.pm,
+	t/00-load.t, t/interp.t, t/perlcritic.t, t/pod-coverage.t, t/pod.t:
+	new file.
 	* Changes, LICENSE, Makefile.PL, README, lib/String/Interpolate/RE.pm,
 	t/00-load.t, t/interp.t, t/perlcritic.t, t/pod-coverage.t, t/pod.t:
 	initial import

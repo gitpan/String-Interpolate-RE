@@ -11,7 +11,6 @@ inc/Module/Install/Makefile.pm
 inc/Module/Install/Metadata.pm
 inc/Module/Install/Win32.pm
 inc/Module/Install/WriteAll.pm
-interp.t
 lib/String/Interpolate/RE.pm
 LICENSE
 Makefile.PL
@@ -20,6 +19,7 @@ MANIFEST.SKIP
 META.yml
 README
 t/00-load.t
+t/format.t
 t/interp.t
 t/perlcritic.t
 t/pod-coverage.t

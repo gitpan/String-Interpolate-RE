@@ -28,7 +28,7 @@ use Carp;
 use base 'Exporter';
 our @EXPORT_OK = qw( strinterp );
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 sub strinterp
 {
@@ -36,24 +36,31 @@ sub strinterp
 
   $var = {} unless defined $var;
 
+  ## no critic (ProhibitAccessOfPrivateData)
   my %opt = ( raiseundef => 0,
 	      emptyundef => 0,
 	      useenv => 1,
+              format => 0,
 	      defined $opts
 	          ? ( map { (lc $_ => $opts->{$_ }) } keys %{$opts} )
 	          : (),
 	     );
+  ## use critic
+
+  my $fmt = $opt{format} ? ':([^}]+)' : '()';
 
   $text =~ s{
        \$                # find a literal dollar sign
       (                  # followed by either
-       {(\w+)}           #   a variable name in curly brackets ($2)
+       {(\w+)(?:$fmt)?}  #  a variable name in curly brackets ($2)
+             		 #  and an optional sprintf format 
        |                 # or
         (\w+)            #   a bareword ($3)
       )
   }{
-      my $t = defined( $3 ) ? $3 : $2;
+      my $t = defined $4 ? $4 : $2;
 
+      my $v =
       # in user provided variable hash?
         defined $var->{$t}                ? $var->{$t}
 
@@ -66,9 +73,23 @@ sub strinterp
       # undefined: replace with ''?
       : $opt{emptyundef}                  ? ''
 
-      # just put it back into the string
-      :                                     '$' . $1;
-  }egx;
+      # undefined
+      :                                     undef
+
+      ;
+
+      # if not defined, just put it back into the string
+         ! defined $v                     ? '$' . $1
+
+      # no format? return as is
+      :  ! defined $3 || $3 eq ''         ? $v
+
+      # format it
+      :                                     sprintf( $3, $v)
+
+      ;
+
+      }egx;
 
   return $text;
 }
@@ -128,6 +149,25 @@ The C<%opts> parameter may be used to modify the behavior of this
 function.  The following (case insensitive) keys are recognized:
 
 =over
+
+=item Format
+
+If this flag is true, the template string may provide a C<sprintf>
+compatible format which will be used to generate the interpolated
+value.  The format should be appended to the variable name with
+an intervening C<:> character, e.g.
+
+    ${VAR:fmt}
+
+For example, 
+
+    %var = ( foo => 3 );
+    print strinterp( '${foo:%03d}', \%var, { Format => 1 } );
+
+would result in
+
+    003
+
 
 =item RaiseUndef
 

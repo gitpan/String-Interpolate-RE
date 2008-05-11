@@ -1,4 +1,4 @@
-use Test::More tests => 12;
+use Test::More tests => 13;
 
 use String::Interpolate::RE qw( strinterp );
 
@@ -9,6 +9,10 @@ delete $ENV{c};  # just in case
 
 is( strinterp( '$a', \%vars ), '1', 'defined in %vars' );
 is( strinterp( '$a' ), '11', 'defined in %ENV' );
+is( strinterp( '${a}' ), '11', 'use {}' );
+
+# make sure both $a and ${a} work
+
 
 # undefined
 is( strinterp( '$c' ), '$c', 'not defined' );

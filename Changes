@@ -1,8 +1,11 @@
 Revision history for String-Interpolate-RE
 
+0.03   
+     interpolated values may be formatted with sprintf
+
 0.02
-	non-variable parts of the interpolated strings were erased. oops.
+     non-variable parts of the interpolated strings were erased. oops.
 
 0.01  
-       Initial release.
+     Initial release.
 
