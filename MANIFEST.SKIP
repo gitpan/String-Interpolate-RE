@@ -5,3 +5,10 @@ Makefile$
 blib/
 ~$
 pm_to_blib
+blibdirs
+^MYMETA
+^cover_db
+^Build$
+^_build
+^\#
+^\.#

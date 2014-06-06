@@ -6,8 +6,16 @@ name 'String-Interpolate-RE';
 
 all_from 'lib/String/Interpolate/RE.pm';
 
-build_requires 'Test::More';
+author 'Diab Jerius';
+
+bugtracker 'http://rt.cpan.org/Public/Dist/Display.html?Name=String-Interpolate-RE';
+
+repository 'https://bitbucket.org/djerius/string-interpolate-re';
+
+author_tests( 'xt' );
 
 auto_install;
+
+cpanfile;
 
 WriteAll;
