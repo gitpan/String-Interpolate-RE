@@ -5,7 +5,7 @@
       "Diab Jerius"
    ],
    "dynamic_config" : "0",
-   "generated_by" : "Module::Install version 1.08, CPAN::Meta::Converter version 2.133380",
+   "generated_by" : "Module::Install version 1.06, CPAN::Meta::Converter version 2.120921",
    "license" : [
       "open_source"
    ],
@@ -35,6 +35,7 @@
       },
       "develop" : {
          "requires" : {
+            "Module::Install" : "0",
             "Module::Install::AuthorTests" : "0",
             "Module::Install::CPANfile" : "0",
             "Test::Perl::Critic" : "0",
@@ -44,6 +45,7 @@
       },
       "test" : {
          "requires" : {
+            "Test::Fatal" : "0",
             "Test::More" : "0.98"
          }
       }
@@ -60,5 +62,5 @@
          "url" : "https://bitbucket.org/djerius/string-interpolate-re"
       }
    },
-   "version" : "0.04"
+   "version" : "0.05"
 }

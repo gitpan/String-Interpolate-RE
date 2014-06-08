@@ -28,7 +28,7 @@ use Carp;
 use Exporter qw[ import ];
 our @EXPORT_OK = qw( strinterp );
 
-our $VERSION = '0.04';
+our $VERSION = '0.05';
 
 ## no critic (ProhibitAccessOfPrivateData)
 
